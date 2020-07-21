@@ -4,9 +4,9 @@
 class Vec3
 {
 private:
-    double x;
-    double y;
-    double z;
+    double x1;
+    double x2;
+    double x3;
 
 public:
     // Constructors
@@ -19,11 +19,11 @@ public:
     double z();
 
     // Unary operator overloading
-    Vec3 &operator-();
-    Vec3 &operator+=(const Vec3 &);
-    Vec3 &operator-=(const Vec3 &);
-    Vec3 &operator*=(const double t);
-    Vec3 &operator/=(const double t);
+    Vec3 operator-();
+    Vec3 &operator+=(Vec3 &);
+    Vec3 &operator-=(Vec3 &);
+    Vec3 &operator*=(double t);
+    Vec3 &operator/=(double t);
 
     //Magnitude
     double mag();
@@ -31,16 +31,19 @@ public:
 };
 
 // Binary operator
-Vec3 operator+(const Vec3, const Vec3);
-Vec3 operator-(const Vec3, const Vec3);
-Vec3 operator*(const Vec3, double);
-Vec3 operator*(double t, const Vec3 &);
+Vec3 operator+(Vec3, Vec3);
+Vec3 operator-(Vec3, Vec3);
+Vec3 operator*(Vec3, double);
+Vec3 operator*(double t, Vec3 &);
 
 // Products
-double dot(Vec3 &, Vec &);
+double dot(Vec3 &, Vec3 &);
 Vec3 cross(Vec3 &, Vec3 &);
 
 //Unit vector
 Vec3 unit(Vec3 v);
+
+using color=Vec3;
+using point=Vec3;
 
 #endif

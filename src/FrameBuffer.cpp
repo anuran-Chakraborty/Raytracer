@@ -17,18 +17,21 @@ void FrameBuffer::setPixel(int row, int col, color c)
 // Function to write frame buffer to a file
 void FrameBuffer::writeBuffer()
 {
-    ofstream fout;
+    std::ofstream fout;
 
     fout.open("outputs/output.ppm");
+    fout<<"P3\n";
+    fout<<width<<" "<<height<<"\n";
+    fout<<"255"<<"\n";
+
     int i, j;
     for (i = 0; i < height; i++)
         for (j = 0; j < width; j++)
-            fout << static_cast<int>(frame[i * width + j].x()) << " " << static_cast<int>(frame[i * width + j].y()) << " " << static_cast<int>(frame[i * width + j].z()) << endl;
+            fout << static_cast<int>(frame[i * width + j].x()*255.999) << " " << static_cast<int>(frame[i * width + j].y()*255.999) << " " << static_cast<int>(frame[i * width + j].z()*255.999) << "\n";
 }
 
 //Destructor
 FrameBuffer::~FrameBuffer()
 {
     free(frame);
-}
 }

@@ -1,5 +1,6 @@
 #ifndef FRAME_BUFFER_H
 #define FRAME_BUFFER_H
+#include "Vec3.h"
 
 class FrameBuffer{
     private:
