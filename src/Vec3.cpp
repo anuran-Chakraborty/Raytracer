@@ -77,42 +77,42 @@ double Vec3::sqMag()
 }
 
 // Binary operator
-Vec3 operator+(Vec3 &u, Vec3 &v)
+Vec3 operator+(Vec3 u, Vec3 v)
 {
     return Vec3(u.x() + v.y(), u.y() + v.y(), u.z() + v.z());
 }
 
-Vec3 operator-(Vec3 &u, Vec3 &v)
+Vec3 operator-(Vec3 u, Vec3 v)
 {
     return Vec3(u.x() - v.x(), u.y() - v.y(), u.z() - v.z());
 }
-Vec3 operator*(Vec3 &u, double t)
+Vec3 operator*(Vec3 u, double t)
 {
     return Vec3(u.x() * t, u.y() * t, u.z() * t);
 }
 
-Vec3 operator*(double t, Vec3 &u)
+Vec3 operator*(double t, Vec3 u)
 {
     return Vec3(u.x() * t, u.y() * t, u.z() * t);
 }
 
-Vec3 operator/(Vec3 &u, double t)
+Vec3 operator/(Vec3 u, double t)
 {
     return Vec3(u.x() / t, u.y() / t, u.z() / t);
 }
 
 // Products
-double dot(Vec3 &u, Vec3 &v)
+double dot(Vec3 u, Vec3 v)
 {
     return u.x() * v.x() + u.y() * v.y() + u.z() * v.z();
 }
-Vec3 cross(Vec3 &u, Vec3 &v)
+Vec3 cross(Vec3 u, Vec3 v)
 {
     return Vec3((u.y() * v.z() - v.y() * u.z()), (v.x() * u.z() - u.x() * v.z()), (u.x() * v.y() - u.y() * v.x()));
 }
 
 //Unit vector
-Vec3 unit(Vec3 &v)
+Vec3 unit(Vec3 v)
 {
     return v / v.mag();
 }

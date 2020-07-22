@@ -34,11 +34,12 @@ public:
 Vec3 operator+(Vec3, Vec3);
 Vec3 operator-(Vec3, Vec3);
 Vec3 operator*(Vec3, double);
-Vec3 operator*(double t, Vec3 &);
+Vec3 operator*(double t, Vec3 );
+Vec3 operator/(Vec3 u, double t);
 
 // Products
-double dot(Vec3 &, Vec3 &);
-Vec3 cross(Vec3 &, Vec3 &);
+double dot(Vec3, Vec3 );
+Vec3 cross(Vec3, Vec3 );
 
 //Unit vector
 Vec3 unit(Vec3 v);
