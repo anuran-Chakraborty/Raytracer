@@ -15,11 +15,14 @@ all: builddir final
 builddir:
 		mkdir build	
 
-final: main.o Vec3.o FrameBuffer.o Ray.o Camera.o Utils.o
-		$(CC) $(BUILD_DIR)main.o $(BUILD_DIR)Vec3.o $(BUILD_DIR)FrameBuffer.o $(BUILD_DIR)Ray.o $(BUILD_DIR)Camera.o $(BUILD_DIR)Utils.o -o bin.exe
+final: main.o Vec3.o FrameBuffer.o Ray.o Camera.o Utils.o Sphere.o
+		$(CC) $(BUILD_DIR)main.o $(BUILD_DIR)Vec3.o $(BUILD_DIR)FrameBuffer.o $(BUILD_DIR)Ray.o $(BUILD_DIR)Sphere.o $(BUILD_DIR)Camera.o $(BUILD_DIR)Utils.o -o bin.exe
 
 main.o: $(SOURCE_DIR)main.cpp
 		$(CC) -o $(BUILD_DIR)main.o $(C_FLAGS) $(INCLUDE_DIR) $(SOURCE_DIR)main.cpp
+
+Sphere.o: $(SOURCE_DIR)Sphere.cpp
+		$(CC) -o $(BUILD_DIR)Sphere.o $(C_FLAGS) $(INCLUDE_DIR) $(SOURCE_DIR)Sphere.cpp
 
 Utils.o: $(SOURCE_DIR)Utils.cpp
 		$(CC) -o $(BUILD_DIR)Utils.o $(C_FLAGS) $(INCLUDE_DIR) $(SOURCE_DIR)Utils.cpp

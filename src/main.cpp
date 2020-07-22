@@ -19,6 +19,8 @@ int main(int argc, char const *argv[])
 
     point lower_left=origin-horizontal/(double)2.0-vertical/(double)2.0-point(0,0,cam.getFocalLength());
     
+    Sphere sph(point(0,0,0),0.03);
+
     // Write a sample frame buffer
     int i,j;
     for(i=height-1;i>=0;i--)
@@ -28,7 +30,7 @@ int main(int argc, char const *argv[])
             double v=(double)i/(width-1);
 
             Ray r(origin, lower_left+u*vertical+v*horizontal-origin);
-            color c=ray_color(r);
+            color c=ray_color(r,sph);
             fb.setPixel(i,j,c);
         }
 
